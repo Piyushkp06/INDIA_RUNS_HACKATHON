@@ -1,0 +1,32 @@
+# Large data files (too big for GitHub)
+Data/India_runs_data_and_ai_challenge/candidates.jsonl
+
+# Pre-computed artifacts (regenerate with precompute.py)
+# Uncomment the lines below if you DON'T want to commit these:
+# applicant_metadata.parquet
+# applicant_space.faiss
+
+# Model directories (regenerate with download_models.py)
+# Uncomment the lines below if you DON'T want to commit these:
+# model/
+# local_cross_encoder/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

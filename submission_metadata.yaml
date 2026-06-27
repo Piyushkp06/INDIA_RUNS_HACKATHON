@@ -1,0 +1,86 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in your real details before submitting.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "your-team-name-here"  # TODO: Replace with your team name
+
+primary_contact:
+  name: "Piyush Panda"           # TODO: Your full name
+  email: "your@email.com"        # TODO: Your email
+  phone: "+91-XXXXXXXXXX"        # TODO: Your phone number
+
+team_members:
+  - name: "Piyush Panda"
+    email: "your@email.com"
+    role: "ML Engineer"
+  # Add more members as needed
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/Piyushkp06/INDIA_RUNS_HACKATHON"
+
+sandbox_link: ""  # TODO: Add HuggingFace Spaces / Streamlit / Colab link
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows PC"                       # TODO: Update to your machine
+  cpu_cores: 8                                 # TODO: Update
+  ram_gb: 16                                   # TODO: Update
+  python_version: "3.11"                       # TODO: python --version
+  os: "Windows 11"                             # TODO: Update
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true               # We pre-compute FAISS index + embeddings
+  pre_computation_time_minutes: 15             # Approximate
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini"
+
+ai_usage_summary: |
+  Used Gemini for code review, architecture discussion, and repo setup.
+  No candidate data was fed to any LLM.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Multi-stage semantic ranking pipeline for candidate discovery.
+  
+  Stage 1: Dense bi-encoder retrieval (all-MiniLM-L6-v2) via FAISS for
+  initial semantic matching against the job description.
+  
+  Stage 2: Hard disqualifier and honeypot trap detection using heuristic
+  rules (blocked titles, agency-only experience, synthetic profiles,
+  LangChain-only newcomers, pure-research academics).
+  
+  Stage 3: Cross-encoder reranking (ms-marco-MiniLM-L-6-v2) on top-250
+  candidates for deep contextual attention scoring.
+  
+  Stage 4: Reciprocal Rank Fusion (RRF) combining dense and cross-encoder
+  rankings into a unified fusion score.
+  
+  Stage 5: Heuristic blending with experience, availability, GitHub
+  activity, and recruiter-save boosts. Evidence-based reasoning generated
+  from raw candidate data for each ranked output.
+  
+  Runtime: ~2 minutes for 5K candidates on CPU.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: false                   # TODO: Set to true after you test
