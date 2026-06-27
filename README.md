@@ -36,56 +36,56 @@ The system must:
 
 ```
                           ┌─────────────────────────────┐
-                          │    candidates.jsonl (5K+)    │
+                          │    candidates.jsonl (100K+) │
                           └──────────────┬──────────────┘
                                          │
                     ┌────────────────────▼────────────────────┐
-                    │         STAGE 0: PRECOMPUTE (Offline)    │
-                    │   Parse profiles → Extract features      │
-                    │   Encode with MiniLM → Build FAISS index │
-                    │   ⚡ Kaggle 2×T4 GPU | ~5 min            │
+                    │         STAGE 0: PRECOMPUTE (Offline)   │
+                    │   Parse profiles → Extract features     │
+                    │   Encode with MiniLM → Build FAISS index│
+                    │   ⚡ Kaggle 2×T4 GPU | ~5 min          │
                     └────────────────────┬────────────────────┘
                                          │
               ┌──────────────────────────▼──────────────────────────┐
-              │                INFERENCE PIPELINE (rank.py)          │
-              │                                                      │
+              │                INFERENCE PIPELINE (rank.py)         │
+              │                                                     │
               │  ┌─────────────────────────────────────────────┐    │
-              │  │ STAGE 1: Dense Semantic Retrieval            │    │
-              │  │ all-MiniLM-L6-v2 + FAISS cosine similarity   │    │
-              │  │ Retrieves all candidates ranked by JD match  │    │
+              │  │ STAGE 1: Dense Semantic Retrieval           │    │
+              │  │ all-MiniLM-L6-v2 + FAISS cosine similarity  │    │
+              │  │ Retrieves all candidates ranked by JD match │    │ 
               │  └──────────────────┬──────────────────────────┘    │
-              │                     │                                │
+              │                     │                               │
               │  ┌──────────────────▼──────────────────────────┐    │
-              │  │ STAGE 2: Hard Disqualifier & Trap Filtering  │    │
-              │  │ Honeypots · Blocked titles · Agency-only     │    │
-              │  │ Job hoppers · Pure research · LangChain trap │    │
+              │  │ STAGE 2: Hard Disqualifier & Trap Filtering │    │
+              │  │ Honeypots · Blocked titles · Agency-only    │    │
+              │  │ Job hoppers · Pure research · LangChain trap│    │
               │  └──────────────────┬──────────────────────────┘    │
-              │                     │  Top 250                       │
+              │                     │  Top 250                      │
               │  ┌──────────────────▼──────────────────────────┐    │
-              │  │ STAGE 3: Cross-Encoder Reranking             │    │
-              │  │ ms-marco-MiniLM-L-6-v2 deep attention        │    │
-              │  │ Pairwise JD↔Candidate relevance scoring      │    │
+              │  │ STAGE 3: Cross-Encoder Reranking            │    │
+              │  │ ms-marco-MiniLM-L-6-v2 deep attention       │    │
+              │  │ Pairwise JD↔Candidate relevance scoring     │    │
               │  └──────────────────┬──────────────────────────┘    │
-              │                     │                                │
+              │                     │                               │
               │  ┌──────────────────▼──────────────────────────┐    │
-              │  │ STAGE 4: Reciprocal Rank Fusion (RRF)        │    │
-              │  │ Fuses dense + cross-encoder dual rankings     │    │
-              │  │ k=60 smoothing parameter                      │    │
+              │  │ STAGE 4: Reciprocal Rank Fusion (RRF)       │    │
+              │  │ Fuses dense + cross-encoder dual rankings   │    │ 
+              │  │ k=60 smoothing parameter                    │    │
               │  └──────────────────┬──────────────────────────┘    │
-              │                     │                                │
+              │                     │                               │
               │  ┌──────────────────▼──────────────────────────┐    │
-              │  │ STAGE 5: Heuristic Blending & Reasoning      │    │
-              │  │ Experience curve · Availability decay         │    │
-              │  │ GitHub boost · Recruiter-save signal          │    │
-              │  │ Evidence-based reasoning per candidate        │    │
+              │  │ STAGE 5: Heuristic Blending & Reasoning     │    │
+              │  │ Experience curve · Availability decay       │    │
+              │  │ GitHub boost · Recruiter-save signal        │    │
+              │  │ Evidence-based reasoning per candidate      │    │
               │  └──────────────────┬──────────────────────────┘    │
-              │                     │                                │
-              └─────────────────────┼────────────────────────────────┘
+              │                     │                               │
+              └─────────────────────┼───────────────────────────────┘
                                     │
                           ┌─────────▼─────────┐
-                          │  submission.csv    │
-                          │  Top 100 ranked    │
-                          │  with reasoning    │
+                          │  submission.csv   │
+                          │  Top 100 ranked   │
+                          │  with reasoning   │
                           └───────────────────┘
 ```
 
