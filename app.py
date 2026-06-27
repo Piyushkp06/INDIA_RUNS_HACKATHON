@@ -20,7 +20,7 @@ from datetime import date
 
 # --- Page Config ---
 st.set_page_config(
-    page_title="Thala For A Reason — Candidate Ranker",
+    page_title="AI Candidate Ranker",
     page_icon="🏆",
     layout="wide"
 )

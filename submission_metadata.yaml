@@ -1,38 +1,35 @@
 # Redrob Hackathon — Submission Metadata
-# Fill in your real details before submitting.
-
 # ============================================================================
 # Team identity
-# ============================================================================
-team_name: "your-team-name-here"  # TODO: Replace with your team name
+# ===========================================================================
+team_name: "Thala_For_A_Reason"  
 
 primary_contact:
-  name: "Piyush Panda"           # TODO: Your full name
-  email: "your@email.com"        # TODO: Your email
-  phone: "+91-XXXXXXXXXX"        # TODO: Your phone number
+  name: "Piyushkanta Panda"           
+  email: "pkapanda0612@gmail.com"      
+  phone: "+91-9337052767"        
 
 team_members:
-  - name: "Piyush Panda"
-    email: "your@email.com"
-    role: "ML Engineer"
-  # Add more members as needed
+  - name: "Piyushkanta Panda"
+    email: "pkpand0612@gmail.com"
+    role: "Gen AI Developer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
 github_repo: "https://github.com/Piyushkp06/INDIA_RUNS_HACKATHON"
 
-sandbox_link: ""  # TODO: Add HuggingFace Spaces / Streamlit / Colab link
+sandbox_link: "https://jobsmatchai.streamlit.app/"
 
-reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./Thala_For_A_Reason.csv"
 
 # ============================================================================
 # Compute environment
 # ============================================================================
 compute:
   platform: "Windows PC"                       # TODO: Update to your machine
-  cpu_cores: 8                                 # TODO: Update
-  ram_gb: 16                                   # TODO: Update
+  cpu_cores: 6                                 # TODO: Update
+  ram_gb: 8                                 # TODO: Update
   python_version: "3.11"                       # TODO: python --version
   os: "Windows 11"                             # TODO: Update
   uses_gpu_for_inference: false
