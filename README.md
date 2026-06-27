@@ -1,7 +1,6 @@
 <div align="center">
 
-# 🏆 Thala For A Reason
-
+# Jobs Match AI
 ### Intelligent Candidate Discovery & Ranking System
 
 **India Runs Data & AI Challenge 2026** | Redrob AI Hackathon
@@ -23,7 +22,7 @@
 
 ## 🎯 The Challenge
 
-Given a JSONL dataset of ~5,000 candidate profiles with career histories, skills, education, and behavioral signals — **rank the top 100 candidates** for a Senior AI Engineer role on Redrob AI's founding team.
+Given a JSONL dataset of ~100k candidate profiles with career histories, skills, education, and behavioral signals — **rank the top 100 candidates** for a Senior AI Engineer role on Redrob AI's founding team.
 
 The system must:
 - ✅ Run **fully offline** (no API calls during ranking)
