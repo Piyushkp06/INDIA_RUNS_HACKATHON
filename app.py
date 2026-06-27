@@ -361,7 +361,7 @@ def run_pipeline(raw_candidates, progress_bar):
 # Header
 st.markdown("""
 <div style="text-align: center; padding: 1rem 0;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 0.2rem;">🏆 Thala For A Reason</h1>
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.2rem;">AI Candidate Ranker for Jobs</h1>
     <p style="font-size: 1.2rem; color: #888;">Intelligent Candidate Discovery & Ranking — India Runs Data & AI Challenge</p>
 </div>
 """, unsafe_allow_html=True)
