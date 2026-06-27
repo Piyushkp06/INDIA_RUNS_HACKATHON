@@ -3,3 +3,4 @@ numpy
 faiss-cpu
 sentence-transformers
 pyarrow
+streamlit
