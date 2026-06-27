@@ -27,15 +27,15 @@ reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./Thala
 # Compute environment
 # ============================================================================
 compute:
-  platform: "Windows PC"                       # TODO: Update to your machine
-  cpu_cores: 6                                 # TODO: Update
-  ram_gb: 8                                 # TODO: Update
-  python_version: "3.11"                       # TODO: python --version
-  os: "Windows 11"                             # TODO: Update
+  platform: "Windows PC"                       
+  cpu_cores: 6                                 
+  ram_gb: 8                                 
+  python_version: "3.11"                       
+  os: "Windows 11"                             
   uses_gpu_for_inference: false
   has_network_during_ranking: false
-  pre_computation_required: true               # We pre-compute FAISS index + embeddings
-  pre_computation_time_minutes: 15             # Approximate
+  pre_computation_required: true               
+  pre_computation_time_minutes: 5
 
 # ============================================================================
 # AI tools declaration
@@ -80,4 +80,4 @@ declarations:
   code_is_original_work: true
   no_collusion: true
   honeypot_check_done: true
-  reproduction_tested: false                   # TODO: Set to true after you test
+  reproduction_tested: true                   
