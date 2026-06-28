@@ -70,7 +70,7 @@ methodology_summary: |
   activity, and recruiter-save boosts. Evidence-based reasoning generated
   from raw candidate data for each ranked output.
   
-  Runtime: ~2 minutes for 5K candidates on CPU.
+  Runtime: ~2 minutes for 100K candidates on CPU.
 
 # ============================================================================
 # Declarations

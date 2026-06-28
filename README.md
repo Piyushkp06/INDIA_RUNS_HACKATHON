@@ -176,7 +176,7 @@ python rank.py --candidates ./Data/India_runs_data_and_ai_challenge/candidates.j
 | **Inference (ranking)** | CPU only · No GPU required |
 | **RAM** | 8–16 GB recommended |
 | **Network** | ❌ Not required during ranking |
-| **Runtime** | ~2 minutes for 5K candidates on CPU |
+| **Runtime** | ~2 minutes for 100K candidates on CPU |
 
 ---
 
